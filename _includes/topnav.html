@@ -12,8 +12,7 @@
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <!-- toggle sidebar button -->
-                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+
                 <!-- entries without drop-downs appear here -->
 
 {% assign topnav = site.data[page.topnav] %}
@@ -54,9 +53,9 @@
 			{% include feedback.html %}
 		{% endif %}
                 <!--comment out this block if you want to hide search-->
-                <li>
+                <!--<li>
                     <!--start search-->
-                    <div id="search-demo-container">
+                <!--    <div id="search-demo-container">
                         <input type="text" id="search-input" placeholder="{{site.data.strings.search_placeholder_text}}">
                         <ul id="results-container"></ul>
                     </div>
@@ -73,11 +72,12 @@
                     })
                     </script>
                     <!--end search-->
-                </li>
+                <!--</li>-->
+                    <!-- toggle sidebar button -->
+                    <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Hide Sidebar</a></li>
             </ul>
         </div>
         </div>
         <!-- /.container -->
 </nav>
 
-{% comment %} Copyright 2021 Google LLC {% endcomment %}
