@@ -21,8 +21,7 @@ folder: wire-vision
                 <div class="panel-body">
                     <h4>Step One:</br>Upload Images</h4>
                     <label> Choose the File to Upload: </label>
-                    <input type="file" id="myFile"/><br/>
-                    <input type="Submit" value="submit"/>
+                    <input type="file" id="myFileInput"/>
                 </div>
             </div>
         </div>
@@ -71,4 +70,29 @@ folder: wire-vision
                 </div>
             </div>
         </div>  -->
-    </div>
+</div>
+<div class="row">
+    <h2>Uploaded Image Preview:</h2> 
+    <img id="imgPreview" src="" alt="Uploaded images will appear here.">
+</div>
+
+<script>
+    document.querySelector("#myFileInput").addEventListener("change", function() {
+        const reader = new FileReader();
+
+        reader.addEventListener("load", () => {
+            sessionStorage.setItem("recent-image", reader.result);
+        });
+        
+        reader.readAsDataURL(this.files[0]);
+    });
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        const recentImageDataUrl = sessionStorage.getItem("recent-image");
+
+        if (recentImageDataUrl) {
+            document.querySelector("#imgPreview").setAttribute("src", recentImageDataUrl);
+        }
+    });
+</script>
+    
